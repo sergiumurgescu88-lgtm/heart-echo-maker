@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNiche, type NicheType } from '@/contexts/NicheContext';
+import { toast } from 'sonner';
 import { nicheData } from '@/data/nicheData';
 import { PageHeader, VRCard, Tag, VRButton } from '@/components/ui-vr/SharedUI';
 
@@ -26,7 +27,10 @@ const ChameleonPage: React.FC = () => {
         {niches.map(n => (
           <button
             key={n.id}
-            onClick={() => setNiche(n.id)}
+            onClick={() => {
+              setNiche(n.id);
+              toast.success(`Switched to ${n.name}`, { description: 'UI, AI prompts & monetization reconfigured.' });
+            }}
             className={`p-4 rounded-xl border bg-s1 cursor-pointer text-center transition-all flex flex-col items-center gap-2 hover:border-border-hover hover:-translate-y-0.5
               ${niche === n.id ? 'border-niche-a -translate-y-0.5 shadow-[0_8px_24px_hsl(var(--niche-glow))]' : 'border-border text-muted-foreground'}`}
           >
@@ -53,7 +57,7 @@ const ChameleonPage: React.FC = () => {
               <div className="flex-1">
                 <div className="text-[13px] font-bold mb-1">{s.title}</div>
                 <div className="text-[11px] text-muted-foreground font-mono-label leading-relaxed">{s.desc}</div>
-                <div className="mt-2.5"><VRButton className="!py-[7px] !px-3.5 !text-[11px]">Generate Now</VRButton></div>
+                <div className="mt-2.5"><VRButton className="!py-[7px] !px-3.5 !text-[11px]" onClick={() => toast.success(`${s.title}`, { description: 'Generation queued — Gemini Spark processing…' })}>Generate Now</VRButton></div>
               </div>
             </div>
           ))}
@@ -82,12 +86,16 @@ const ChameleonPage: React.FC = () => {
               <label className="text-[9px] font-mono-label text-muted-foreground tracking-[0.14em] uppercase mb-[7px] block">Current Niche</label>
               <select className="w-full bg-s2 border border-border rounded-lg px-3.5 py-2.5 text-[13px] text-foreground font-sans focus:outline-none focus:border-niche-a focus:shadow-[0_0_0_3px_hsl(var(--niche-glow))]"
                 value={niche}
-                onChange={e => setNiche(e.target.value as NicheType)}
+                onChange={e => {
+                  setNiche(e.target.value as NicheType);
+                  toast.success(`Niche switched to ${e.target.value.toUpperCase()}`, { description: 'Platform adapting — UI, AI prompts & monetization reconfigured.' });
+                }}
               >
                 <option value="fashion">Fashion & Apparel</option>
                 <option value="restaurant">Restaurant & Food</option>
                 <option value="salon">Salon & Beauty</option>
                 <option value="fitness">Fitness & Health</option>
+                <option value="adult">Creator+ (18+)</option>
               </select>
             </div>
             <div>
@@ -100,7 +108,7 @@ const ChameleonPage: React.FC = () => {
                 {data.mono}
               </div>
             </div>
-            <VRButton className="w-full justify-center !py-3">Apply Chameleon Config</VRButton>
+            <VRButton className="w-full justify-center !py-3" onClick={() => toast.success('Chameleon Config Applied ✦', { description: `Niche: ${niche.toUpperCase()} · Monetization: ${data.mono}` })}>Apply Chameleon Config</VRButton>
           </div>
         </VRCard>
       </div>
