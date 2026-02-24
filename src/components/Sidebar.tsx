@@ -10,25 +10,25 @@ interface NavItem {
   badgeColor?: string;
 }
 
-const coreNav: NavItem[] = [
+const overviewNav: NavItem[] = [
   { id: 'dashboard', icon: '◈', label: 'Dashboard' },
+  { id: 'analytics', icon: '◇', label: 'Analytics Center' },
+];
+const aiCoreNav: NavItem[] = [
   { id: 'chameleon', icon: '✦', label: 'Chameleon Core', badge: 'LIVE', badgeColor: 'rose' },
   { id: 'momentum', icon: '⚡', label: 'Momentum Mode', badge: 'LIVE', badgeColor: 'green' },
-];
-const identityNav: NavItem[] = [
-  { id: 'characters', icon: '◉', label: 'Characters', badge: '12', badgeColor: 'rose' },
-  { id: 'generation', icon: '⬡', label: 'Generation' },
-  { id: 'clone', icon: '▷', label: 'Clone Dance', badge: 'NEW', badgeColor: 'velvet' },
-];
-const revenueNav: NavItem[] = [
-  { id: 'predict', icon: '△', label: 'Predictive Rev', badge: 'AI', badgeColor: 'gold' },
-  { id: 'marketplace', icon: '$', label: 'Marketplace / PPV' },
   { id: 'twin', icon: '⊞', label: 'Twin Platform' },
 ];
-const discoveryNav: NavItem[] = [
-  { id: 'storefronts', icon: '⬠', label: 'Metaverse Stores' },
+const contentStudioNav: NavItem[] = [
+  { id: 'characters', icon: '◉', label: 'Characters', badge: '12', badgeColor: 'rose' },
+  { id: 'generation', icon: '⬡', label: 'Content Generation' },
+  { id: 'clone', icon: '▷', label: 'Clone Dance', badge: 'NEW', badgeColor: 'velvet' },
   { id: 'library', icon: '○', label: 'Media Library' },
-  { id: 'analytics', icon: '◇', label: 'Analytics' },
+];
+const revenueNav: NavItem[] = [
+  { id: 'predict', icon: '△', label: 'Predictive Revenue', badge: 'AI', badgeColor: 'gold' },
+  { id: 'marketplace', icon: '$', label: 'Marketplace / PPV' },
+  { id: 'storefronts', icon: '⬠', label: 'White-Label Stores' },
 ];
 
 const badgeStyles: Record<string, string> = {
@@ -131,10 +131,10 @@ const Sidebar: React.FC<SidebarProps> = ({ activePage, onNavigate }) => {
         </div>
       </div>
 
-      {renderSection('Core', coreNav)}
-      {renderSection('Identity', identityNav)}
+      {renderSection('Overview', overviewNav)}
+      {renderSection('AI Core', aiCoreNav)}
+      {renderSection('Content Studio', contentStudioNav)}
       {renderSection('Revenue', revenueNav)}
-      {renderSection('Discovery', discoveryNav)}
 
       {/* User Footer */}
       <div className="mt-auto p-4 border-t border-border">
