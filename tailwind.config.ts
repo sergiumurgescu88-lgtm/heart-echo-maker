@@ -12,9 +12,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        'serif-display': ['"Cormorant Garamond"', 'serif'],
-        'mono-label': ['"DM Mono"', 'monospace'],
-        'sans': ['"Josefin Sans"', 'sans-serif'],
+        'serif-display': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'mono-label': ['"JetBrains Mono"', 'monospace'],
+        'sans': ['"Inter"', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
