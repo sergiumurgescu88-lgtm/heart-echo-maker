@@ -8,9 +8,14 @@ import TwinPlatformPage from '@/components/pages/TwinPlatformPage';
 import PredictivePage from '@/components/pages/PredictivePage';
 import CharactersPage from '@/components/pages/CharactersPage';
 import GenerationPage from '@/components/pages/GenerationPage';
+import CreateVideoPage from '@/components/pages/CreateVideoPage';
+import ImageEditorPage from '@/components/pages/ImageEditorPage';
 import CloneDancePage from '@/components/pages/CloneDancePage';
+import FaceSwapPage from '@/components/pages/FaceSwapPage';
 import MarketplacePage from '@/components/pages/MarketplacePage';
+import PPVContentPage from '@/components/pages/PPVContentPage';
 import StorefrontsPage from '@/components/pages/StorefrontsPage';
+import PromptsPage from '@/components/pages/PromptsPage';
 import LibraryPage from '@/components/pages/LibraryPage';
 import AnalyticsPage from '@/components/pages/AnalyticsPage';
 import { NicheProvider } from '@/contexts/NicheContext';
@@ -36,9 +41,14 @@ const IndexInner: React.FC = () => {
       case 'predict': return <PredictivePage />;
       case 'characters': return <CharactersPage onOpenModal={() => setModalOpen(true)} />;
       case 'generation': return <GenerationPage />;
+      case 'createvideo': return <CreateVideoPage />;
+      case 'imageeditor': return <ImageEditorPage />;
       case 'clone': return <CloneDancePage />;
+      case 'faceswap': return <FaceSwapPage />;
       case 'marketplace': return <MarketplacePage />;
+      case 'ppv': return <PPVContentPage />;
       case 'storefronts': return <StorefrontsPage />;
+      case 'prompts': return <PromptsPage />;
       case 'library': return <LibraryPage />;
       case 'analytics': return <AnalyticsPage />;
       default: return <DashboardPage onNavigate={setPage} onOpenModal={() => setModalOpen(true)} />;
@@ -47,7 +57,6 @@ const IndexInner: React.FC = () => {
 
   return (
     <>
-      {/* Ambient orbs */}
       <div className="fixed -top-[150px] -left-[100px] w-[500px] h-[500px] rounded-full blur-[80px] pointer-events-none z-0 opacity-70 bg-[radial-gradient(circle,hsl(var(--niche-glow)),transparent_70%)]" />
       <div className="fixed -bottom-[100px] -right-[100px] w-[400px] h-[400px] rounded-full blur-[80px] pointer-events-none z-0 bg-[radial-gradient(circle,rgba(122,58,138,0.08),transparent_70%)]" />
 

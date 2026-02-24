@@ -21,14 +21,21 @@ const aiCoreNav: NavItem[] = [
 ];
 const contentStudioNav: NavItem[] = [
   { id: 'characters', icon: '◉', label: 'Characters', badge: '12', badgeColor: 'rose' },
-  { id: 'generation', icon: '⬡', label: 'Content Generation' },
-  { id: 'clone', icon: '▷', label: 'Clone Dance', badge: 'NEW', badgeColor: 'velvet' },
-  { id: 'library', icon: '○', label: 'Media Library' },
+  { id: 'generation', icon: '⬡', label: 'Image Generation' },
+  { id: 'createvideo', icon: '🎬', label: 'Create Video', badge: 'NEW', badgeColor: 'velvet' },
+  { id: 'imageeditor', icon: '🖼', label: 'Image Editor' },
+  { id: 'clone', icon: '▷', label: 'Clone Dance' },
+  { id: 'faceswap', icon: '🎭', label: 'Face Swap', badge: 'NEW', badgeColor: 'velvet' },
 ];
 const revenueNav: NavItem[] = [
   { id: 'predict', icon: '△', label: 'Predictive Revenue', badge: 'AI', badgeColor: 'gold' },
-  { id: 'marketplace', icon: '$', label: 'Marketplace / PPV' },
+  { id: 'marketplace', icon: '$', label: 'Marketplace' },
+  { id: 'ppv', icon: '🔒', label: 'PPV Content' },
   { id: 'storefronts', icon: '⬠', label: 'White-Label Stores' },
+];
+const assetsNav: NavItem[] = [
+  { id: 'prompts', icon: '📝', label: 'Prompts Library' },
+  { id: 'library', icon: '○', label: 'Media Library' },
 ];
 
 const badgeStyles: Record<string, string> = {
@@ -135,6 +142,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activePage, onNavigate }) => {
       {renderSection('AI Core', aiCoreNav)}
       {renderSection('Content Studio', contentStudioNav)}
       {renderSection('Revenue', revenueNav)}
+      {renderSection('Assets', assetsNav)}
 
       {/* User Footer */}
       <div className="mt-auto p-4 border-t border-border">
